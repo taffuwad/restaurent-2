@@ -1093,3 +1093,256 @@
       .caption { transition: none; }
       .hint__dot { animation: none; }
     }
+
+
+     footer {
+      background-color: #43b976;
+      padding: 2vw 3vw;
+      height: 100vh;
+      height: 100svh;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    footer .f-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      text-transform: uppercase;
+      height: 33.33%;
+    }
+
+    /* ---------- TOP LEFT ---------- */
+    footer .f-top .t-left h1 {
+      white-space: nowrap;
+      /* original 2vw -> responsive with clamp */
+      font-size: clamp(1rem, 2vw, 2.4rem);
+    }
+
+    footer .f-top .t-left p {
+      white-space: nowrap;
+      font-weight: 900;
+      /* original 2.2vw -> responsive */
+      font-size: clamp(1.1rem, 2.2vw, 2.6rem);
+      font-family: 'sign';
+    }
+
+    footer .f-top .t-left span {
+      /* line-height original 6vw — keep it vw but it's fine, line-height can stay vw or clamp */
+      line-height: 6vw;
+      /* no font-size change from original, but it's just a span (inherits) */
+      font-size: clamp(0.9rem, 1.2vw, 1.3rem); /* make it readable without breaking layout */
+      display: inline-block; /* helps line-height */
+      /* note: the original line-height:6vw is preserved, but we also set font-size */
+    }
+    /* Keep the span visual line-height as original (6vw) — no change */
+    footer .f-top .t-left span {
+      line-height: 6vw; /* keep */
+    }
+
+    /* ---------- LOGO ---------- */
+    footer .f-top .logo {
+      height: 4rem;
+      width: 8rem;
+      transform: scale(1.3);
+      z-index: 99999;
+      flex-shrink: 0;
+    }
+    footer .logo img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- MID SECTION ---------- */
+    footer .f-mid {
+      text-transform: uppercase;
+      height: 33.33%;
+      display: flex;
+    }
+    footer .f-mid .sec {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    footer .f-mid .sec h2 {
+      /* original 2vw */
+      font-size: clamp(1rem, 2vw, 2.4rem);
+    }
+    footer .f-mid .sec h5 {
+      font-family: 'Inter', sans-serif;
+      /* no explicit font-size in original — inherits from parent (sec) — but we want consistent */
+      font-size: clamp(0.9rem, 1.4vw, 1.6rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    footer .f-mid .sec h5 span {
+      font-weight: 100;
+      font-family: 'Inter', sans-serif;
+    }
+    footer .f-mid .sec p {
+      margin-top: 1vw;
+      /* original 0.6vw — extremely small */
+      font-size: clamp(0.7rem, 0.6vw, 0.9rem);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.4;
+    }
+    footer .f-mid .sec a {
+      margin-top: 1vw;
+      position: relative;
+      transform-origin: left;
+      font-size: clamp(0.75rem, 1vw, 1.1rem);
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+    /* --- underline animations (exactly as original) --- */
+    footer .f-mid .sec a::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0%;
+      transform: translate(-50%, -50%) scaleX(1);
+      height: 1px;
+      width: 100%;
+      background-color: var(--white-text);
+      transform-origin: right;
+      transition: 0.6s linear;
+    }
+    footer .f-mid .sec a:hover::before {
+      transform: translate(-50%, -50%) scaleX(0);
+    }
+
+    footer .f-mid .sec a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0%;
+      transform: translate(-50%, -50%) scaleX(0);
+      height: 1px;
+      width: 100%;
+      background-color: var(--white-text);
+      transition: 0.6s linear;
+      transition-delay: 0.2s;
+      transform-origin: left;
+    }
+    footer .f-mid .sec a:hover::after {
+      transform: translate(-50%, -50%) scaleX(1);
+    }
+
+    /* ---------- BOTTOM ---------- */
+    footer .f-bottom {
+      height: 13.33%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid #fff;
+    }
+    footer .f-bottom .b-left h3 {
+      white-space: nowrap;
+      font-size: clamp(0.65rem, 0.9vw, 1rem);
+      font-weight: 400;
+    }
+    footer .f-bottom .b-right {
+      display: flex;
+      gap: 1rem;
+    }
+    footer .f-bottom .b-right a {
+      font-size: clamp(1rem, 2vw, 2.2rem); /* original 2vw */
+      transition: 0.3s ease;
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+    }
+    footer .f-bottom .b-right a:hover {
+      transform: translateY(-5px) scale(1.2);
+    }
+
+    /* ---------- responsiveness & layout fixes ---------- */
+    /* On very small screens, allow wrapping and prevent overflow */
+    @media (max-width: 768px) {
+      footer .f-top {
+        align-items: flex-start;
+        gap: 1rem;
+        height: auto; /* override fixed height for mobile */
+      }
+      footer .f-top .t-left h1,
+      footer .f-top .t-left p,
+      footer .f-top .t-left span {
+        white-space: normal; /* allow wrapping on mobile */
+      }
+      footer .f-top .t-left span {
+        line-height: 1.6; /* more readable on mobile */
+      }
+      footer .f-top .logo {
+        transform: scale(1);
+        align-self: flex-end;
+        height: 3.5rem;
+        width: 7rem;
+      }
+      footer .f-mid {
+        flex-direction: column;
+        gap: 1.5rem;
+        height: auto;
+        margin: 2rem 0;
+      }
+      footer .f-mid .sec {
+        justify-content: flex-start;
+      }
+      footer .f-mid .sec p {
+        max-width: 90%;
+      }
+      footer .f-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        height: auto;
+        padding-top: 1rem;
+      }
+      footer .f-bottom .b-left h3 {
+        white-space: normal;
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+      }
+    }
+
+    /* preserve original vw line-height for span on larger screens */
+    @media (min-width: 769px) {
+      footer .f-top .t-left span {
+        line-height: 6vw;
+      }
+    }
+
+    @media (max-width:480px) {
+      footer{
+        padding: 9vw 5vw ;
+        display: none;
+      }
+      footer .f-top .t-left h1 {
+      white-space: nowrap;
+      /* original 2vw -> responsive with clamp */
+      font-size: clamp(1rem, 1.5vw, 1.1vw);
+    }
+
+    footer .f-top .t-left p {
+      white-space: nowrap;
+      font-weight: 900;
+      /* original 2.2vw -> responsive */
+      font-size: clamp(0.7rem, 1vw, 1.1vw);
+    }
+
+    footer .f-top .t-left span {
+      /* line-height original 6vw — keep it vw but it's fine, line-height can stay vw or clamp */
+      line-height: 6vw;
+      /* no font-size change from original, but it's just a span (inherits) */
+      font-size: clamp(0.7rem, 0.9vw, 1rem); /* make it readable without breaking layout */
+      
+    }
+    /* Keep the span visual line-height as original (6vw) — no change */
+    footer .f-top .t-left span {
+      line-height: 6vw; /* keep */
+    }
+    }
