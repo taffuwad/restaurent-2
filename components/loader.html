@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Honey Dinner — Loader</title>
+
+<style>
+/* =========================================================
+   RESET
+========================================================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html, body{
+  height:100%;
+  overflow:hidden;
+  background:#000;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+.loader{
+  position:fixed;
+  inset:0;
+  background:#0b0b0b;
+  color:#fff;
+  z-index:100000;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:2.2rem 3rem;
+  will-change:clip-path;
+}
+
+/* ---------- top bar ---------- */
+.loader-top,
+.loader-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:0.75rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  opacity:0.75;
+}
+.loader-sub{ opacity:0.5; }
+
+/* ---------- center counter ---------- */
+.loader-center{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.loader-count{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight:400;
+  font-size:7rem;            /* ← required size */
+  letter-spacing:-0.03em;
+  line-height:1;
+  display:flex;
+  align-items:baseline;
+  gap:0.35rem;
+  will-change:transform, opacity;
+}
+
+.loader-count .num{
+  font-variant-numeric:tabular-nums;
+  display:inline-block;
+  min-width:4.5ch;
+  text-align:right;
+}
+
+.loader-count .pct{
+  font-size:0.55em;
+  opacity:0.55;
+  transform:translateY(-0.4em);
+}
+
+/* ---------- bottom bar ---------- */
+.loader-bar{
+  position:absolute;
+  left:3rem;
+  right:3rem;
+  bottom:2.6rem;
+  height:1px;
+  background:rgba(255,255,255,0.12);
+  overflow:hidden;
+}
+.loader-bar span{
+  display:block;
+  height:100%;
+  width:0%;
+  background:#fff;
+  transition:width 0.12s linear;
+}
+
+.loader-note{
+  font-size:0.7rem;
+  letter-spacing:0.3em;
+  opacity:0.5;
+  position:absolute;
+  right:3rem;
+  bottom:3.4rem;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 600px){
+  .loader{ padding:1.6rem 1.4rem; }
+  .loader-top,
+  .loader-bottom{ font-size:0.62rem; letter-spacing:0.22em; }
+  .loader-count{ font-size:4.5rem; }
+  .loader-bar{ left:1.4rem; right:1.4rem; bottom:2rem; }
+  .loader-note{ right:1.4rem; bottom:2.6rem; font-size:0.55rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOADER ================= -->
+<div class="loader" id="loader">
+  <div class="loader-top">
+    <span class="loader-brand">HONEY&nbsp;DINNER</span>
+    <span class="loader-sub">est. 1998</span>
+  </div>
+
+  <div class="loader-center">
+    <div class="loader-count">
+      <span class="num" id="loaderNum">000</span><span class="pct">%</span>
+    </div>
+  </div>
+
+  <div class="loader-bottom">
+    <div class="loader-bar"><span id="loaderBar"></span></div>
+    <span class="loader-note">Preparing the table…</span>
+  </div>
+</div>
+
+<!-- ================= LIBS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script>
+/* =========================================================
+   LOADER — 0 → 100 counter
+========================================================= */
+const loader    = document.getElementById("loader");
+const loaderNum = document.getElementById("loaderNum");
+const loaderBar = document.getElementById("loaderBar");
+
+const counter = { val: 0 };
+
+gsap.timeline({
+  onComplete: () => {
+    document.body.style.overflow = "auto";
+    loader.style.display = "none";
+  }
+})
+  .to(counter, {
+    val: 100,
+    duration: 2.6,
+    ease: "power2.inOut",
+    onUpdate: () => {
+      const v = Math.round(counter.val);
+      loaderNum.textContent = String(v).padStart(3, "0");
+      loaderBar.style.width = v + "%";
+    },
+  })
+  .to(".loader-count",       { y: -20, opacity: 0, duration: 0.5, ease: "power2.in" }, "-=0.3")
+  .to(".loader-top, .loader-bottom", { opacity: 0, duration: 0.4 }, "<")
+  .to(loader, {
+    clipPath: "inset(0 0 100% 0)",
+    duration: 0.9,
+    ease: "power3.inOut",
+  }, "-=0.2");
+</script>
+
+</body>
+</html>
