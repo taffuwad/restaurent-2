@@ -19,6 +19,20 @@
 
   lenis.stop();
 
+
+
+
+
+  // menubar---------------------------
+
+  const menuToggle = document.querySelector(".hamburger input");
+  const fullMenu = document.querySelector(".full-menu");
+
+  menuToggle.addEventListener("change", () => {
+    fullMenu.classList.toggle("menu-open", menuToggle.checked);
+  });
+
+
   /* ============================================================
      2. PAGE LOADER
      ============================================================ */
@@ -793,3 +807,29 @@
   window.addEventListener('load', () => {
     if (window.ScrollTrigger) ScrollTrigger.refresh();
   });
+
+
+
+
+
+
+  Shery.mouseFollower();
+
+
+  Shery.makeMagnet("nav .logo" /* Element to target.*/, {
+  //Parameters are optional.
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 1,
+});
+
+
+Shery.makeMagnet("a" /* Element to target.*/, {
+  //Parameters are optional.
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 1,
+});
+Shery.makeMagnet(".magnet" /* Element to target.*/, {
+  //Parameters are optional.
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 1,
+});
