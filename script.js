@@ -23,6 +23,11 @@
 
 
 
+const booking = document.querySelector("#book-btn");
+
+booking.addEventListener("click", () => {
+  window.location.href = "pages/book.html";
+});
   // menubar---------------------------
 
   const menuToggle = document.querySelector(".hamburger input");

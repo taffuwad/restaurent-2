@@ -79,8 +79,8 @@ main {
 
 .back-to-top{
   position: fixed;
-  bottom: 4vw;
-  right: 4vw;
+  bottom: 5vw;
+  right: 5vw;
   z-index: 999999;
 }
 

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pier & Coast - Reservations</title>
+  
+  <!-- Shery.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  
+  <!-- Google Fonts Fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;900&family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../pages/book.css">
+
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="sections">
+      <a href="Menu.html">Menu</a>
+      <a href="story.html">Our Story</a>
+    </div>
+    <div class="logo">
+      <img src="../components/images/alogo.png" alt="Pier & Coast Logo" />
+    </div>
+    <div class="menu-btn magnet">
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+    </div>
+  </nav>
+
+  <!-- FULL SCREEN MENU -->
+  <div class="full-menu">
+    <div class="menu-wrapper">
+      <h2 class="menu-item"><a href="../index.html">Home</a></h2>
+      <h2 class="menu-item"><a href="story.html">Our Story</a></h2>
+      <h2 class="menu-item"><a href="Menu.html">Menu</a></h2>
+      <h2 class="menu-item"><a href="book.html">Reservation</a></h2>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <img src="https://plus.unsplash.com/premium_photo-1744567294212-ae490224209c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YSUyMHJlc3R1cmVudCUyMGluc2lkZSUyMGltYWdlfGVufDB8fDB8fHww" alt="Restaurant atmosphere" class="hero-bg" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title split-text">RESERVATIONS</h1>
+        <h2 class="hero-subtitle">Secure your table by the water</h2>
+      </div>
+    </header>
+
+    <!-- BOOKING SECTION -->
+    <section class="booking-section">
+      <!-- Left Side: Image -->
+      <div class="booking-image">
+        <img src="../components/images/lunch-image2.jpg" alt="Table setting by the coast" />
+        <div class="booking-image-overlay"></div>
+      </div>
+
+      <!-- Right Side: Form -->
+      <div class="booking-form-container">
+        <h2 class="form-title">MAKE A RESERVATION</h2>
+        <p class="form-subtitle">We look forward to hosting you</p>
+
+        <form class="booking-form" onsubmit="event.preventDefault(); alert('Reservation request sent!');">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="john@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+1 234 567 890" required />
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests</label>
+              <select id="guests" required>
+                <option value="" disabled selected>Select guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6+">6+ Guests</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input type="date" id="date" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Time</label>
+              <input type="time" id="time" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="requests">Special Requests</label>
+            <textarea id="requests" placeholder="Dietary requirements, celebrations, seating preferences..."></textarea>
+          </div>
+
+          <!-- From Uiverse.io by cssbuttons-io --> 
+          <button class="Btn magnet">
+            SEND
+            <svg class="svgIcon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+          </button>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+                <feBlend in="SourceGraphic" in2="goo"></feBlend>
+              </filter>
+            </defs>
+          </svg>
+        </form>
+      </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="info-section">
+      <div class="info-block">
+        <h4>Opening Hours</h4>
+        <p>Monday – Thursday: 12:00 PM – 10:00 PM</p>
+        <p>Friday – Saturday: 12:00 PM – 11:30 PM</p>
+        <p>Sunday: 12:00 PM – 9:00 PM</p>
+      </div>
+      <div class="info-block">
+        <h4>Contact Us</h4>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: reservations@pierandcoast.com</p>
+        <p>Address: 88 Coastal Drive, Pier District</p>
+      </div>
+      <div class="info-block">
+        <h4>Large Parties</h4>
+        <p>For parties of 7 or more, please contact us directly at least 48 hours in advance so we can accommodate your group comfortably.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-top">
+      <div class="t-left">
+        <h1>The World of HONEY DINNER</h1>
+        <p>Where it all Comes Together</p>
+        <span>Contact Information – info@gmail.com</span>
+      </div>
+      <div class="t-right">
+        <div class="logo">
+          <img src="../components/images/alogo.png" alt="Honey Dinner" />
+        </div>
+      </div>
+    </div>
+    <div class="f-mid">
+      <div class="sec1 sec">
+        <h2>Our Story</h2>
+        <h5><span>The Coast</span> Through Our Eyes</h5>
+        <p>
+          Honey Dinner Coast was created around the rhythm of the sea. From
+          its atmosphere to its cuisine, every detail reflects a destination
+          designed for long afternoons and memorable evenings.
+        </p>
+        <a href="story.html">Explore Our Story</a>
+      </div>
+      <div class="sec2 sec">
+        <h2>Our Menu</h2>
+        <h5><span>Flavors</span> From The Coast</h5>
+        <p>
+          From fresh coastal ingredients to comforting classics, our menu
+          brings together vibrant flavors, thoughtful preparation, and dishes
+          made to be shared from afternoon to late evening.
+        </p>
+        <a href="Menu.html">Explore Our Menu</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <div class="b-left">
+        <h3>© 2026 PIER88 GROUP. All Rights Reserved. Powered By Honey Dinner</h3>
+      </div>
+      <div class="b-right">
+        <a href="#"><i class="ri-whatsapp-line"></i></a>
+        <a href="#"><i class="ri-instagram-line"></i></a>
+        <a href="#"><i class="ri-linkedin-fill"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+  <script src="../pages/book.js"></script>
+
+</body>
+</html>
