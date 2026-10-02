@@ -811,25 +811,51 @@
 
 
 
-
-
+/* ============================================================
+   10. SHERY.JS (Desktop Only > 1024px)
+   ============================================================ */
+if (window.innerWidth > 1024) {
+  
+  // Initialize Shery mouse follower
   Shery.mouseFollower();
 
+  // Magnet effect for the logo
+  Shery.makeMagnet("nav .logo", {
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    duration: 1,
+  });
 
-  Shery.makeMagnet("nav .logo" /* Element to target.*/, {
-  //Parameters are optional.
-  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-  duration: 1,
-});
+  // Magnet effect for links
+  Shery.makeMagnet("a", {
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    duration: 1,
+  });
+
+  // Magnet effect for .magnet class
+  Shery.makeMagnet(".magnet", {
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    duration: 1,
+  });
+  
+}
+
+//   Shery.mouseFollower();
 
 
-Shery.makeMagnet("a" /* Element to target.*/, {
-  //Parameters are optional.
-  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-  duration: 1,
-});
-Shery.makeMagnet(".magnet" /* Element to target.*/, {
-  //Parameters are optional.
-  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-  duration: 1,
-});
+//   Shery.makeMagnet("nav .logo" /* Element to target.*/, {
+//   //Parameters are optional.
+//   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+//   duration: 1,
+// });
+
+
+// Shery.makeMagnet("a" /* Element to target.*/, {
+//   //Parameters are optional.
+//   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+//   duration: 1,
+// });
+// Shery.makeMagnet(".magnet" /* Element to target.*/, {
+//   //Parameters are optional.
+//   ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+//   duration: 1,
+// });
